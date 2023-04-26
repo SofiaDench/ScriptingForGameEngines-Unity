@@ -2,31 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
-
-    //private Rigidbody rigidbody; comment: only needed if Intend to jump as the refenrece to the rigidbody will enable the physics (essential in 3D first person)
-    private float horizontalInput;
-    private float verticalInput;
-    //private bool jumpInput; comment obsolete in a 3D top Down (essential in 3D first person)
-    public float velocity;
-
-
-    void Start()
-    {
-        //rigidbody = GetComponent<Rigidbody>();  Comment - obsolete in a 3D top Down (essential in 3D first person)
-    }
-
+    public float speed = 5f; // movement speed
 
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal"); //gets comand for movement
-        verticalInput = Input.GetAxis("Vertical"); // gets command for movement
+        float horizontal = Input.GetAxis("Horizontal"); // get horizontal input
+        float vertical = Input.GetAxis("Vertical"); // get vertical input
 
-        //Insert Jump input get key space here if using 3D first person
-        Vector3 position = new Vector3(horizontalInput, 0f, verticalInput);
-        transform.Translate(position * velocity * Time.deltaTime);
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized; // create direction vector
+        Vector3 velocity = direction * speed; // calculate velocity
 
-
+        transform.position += velocity * Time.deltaTime; // move the character
     }
 }
+

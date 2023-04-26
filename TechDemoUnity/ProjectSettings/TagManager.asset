@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Sandwich
+  - Enemy
   layers:
   - Default
   - TransparentFX
