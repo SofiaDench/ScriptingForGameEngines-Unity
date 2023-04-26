@@ -6,10 +6,11 @@ public class Bullet : MonoBehaviour
 {
     public float bulletSpeed; // bullet speed variable
     public float bulletDamage; // bullet damage variable
+    public float bulletTime;
 
     void Start()
     {
-        Destroy(gameObject, 5f); // destroy bullet after 5 seconds
+        Destroy(gameObject, bulletTime); // destroy bullet after 5 seconds
     }
 
     void Update()

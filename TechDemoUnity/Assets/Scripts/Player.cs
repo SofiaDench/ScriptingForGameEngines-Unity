@@ -4,31 +4,35 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    float horizontalMovement;
+    float verticalMovement;
+    bool jumpInput;
+
+
+
+    public float moveSpeed;
+    public float jumpForce;
+
     //Variables
 
-    public float movementSpeed;
-    public GameObject camera;
-    private Rigidbody playerRb;
+    private Rigidbody rb;
+
     public Transform playerObject;
 
     public GameObject bulletSpawnPoint;
     public GameObject bullet;
-    public float waitTime;
 
     private Transform bulletSpawned;
 
-    public float points;
-
-    public float maxHealth;
     public float health;
 
 
-    //Methods
-
-    private void Start()
+    private void Awake()
     {
-        health = maxHealth;
+        rb = GetComponent<Rigidbody>();
     }
+
+
     void Update()
     {
         //Player facing mouse
@@ -47,51 +51,54 @@ public class Player : MonoBehaviour
             playerObject.transform.rotation = Quaternion.Slerp(playerObject.transform.rotation, targetRotation, 7f * Time.deltaTime);
         }
 
+        Move();
 
-        //Player Movement
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.back * movementSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.Space))
-        {
-            transform.Translate(Vector3.up * movementSpeed * Time.deltaTime);
-        }
         //Shooting
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
-        //Player Death
 
-        if (health <= 0)
-        {
-            Die();
-        }
-
-
-    }//end of void Update
+    }
 
     void Shoot()
     {
         bulletSpawned = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
         bulletSpawned.rotation = bulletSpawnPoint.transform.rotation;
     }
-    public void Die()
+
+    public void Move()
     {
-        print("You are dead");
+
+        horizontalMovement = Input.GetAxis("Horizontal");
+        verticalMovement = Input.GetAxis("Vertical");
+
+        // Calculate movement direction
+        Vector3 moveDirection = new Vector3(horizontalMovement, 0.0f, verticalMovement) * moveSpeed * Time.deltaTime;
+
+        // Move the character
+        transform.position += moveDirection;
+
+        // Check for jump input
+        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) < 0.01f)
+        {
+            // Apply upward force for jump
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage; // reduce health by damage
+        if (health <= 0)
+        {
+            Die(); // if health is <= 0, call the Die method
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject); // destroy the enemy object
     }
 
 
