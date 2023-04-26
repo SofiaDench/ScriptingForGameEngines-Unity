@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 
     public float movementSpeed;
     public GameObject camera;
-
+    private Rigidbody playerRb;
     public Transform playerObject;
 
     public GameObject bulletSpawnPoint;
@@ -65,7 +65,10 @@ public class Player : MonoBehaviour
         {
             transform.Translate(Vector3.back * movementSpeed * Time.deltaTime);
         }
-
+        if (Input.GetKey(KeyCode.Space))
+        {
+            transform.Translate(Vector3.up * movementSpeed * Time.deltaTime);
+        }
         //Shooting
         if (Input.GetMouseButtonDown(0))
         {
