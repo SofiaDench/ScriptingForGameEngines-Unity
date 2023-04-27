@@ -18,11 +18,14 @@ public class Enemy : MonoBehaviour
     public float patrolTime;
     public float enemyDamage;
 
-    public ScorePoints scorePoints;
+    //public ScorePoints scorePoints;
 
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        if (target == null)
+            return;
+
         ChoosePatrolDirection();
     }
 
@@ -31,7 +34,7 @@ public class Enemy : MonoBehaviour
     {
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-        //Debug.Log(distanceToTarget);
+        
 
         if(distanceToTarget < attackRadius)
         {
@@ -54,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
+        //Debug.Log(collision.gameObject.tag);
 
         if(collision.gameObject.tag == "Player")
         {
@@ -109,7 +112,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        scorePoints.SetPoints(10);
+        //scorePoints.SetPoints(10);
         Destroy(gameObject); // destroy the enemy object
     }
 

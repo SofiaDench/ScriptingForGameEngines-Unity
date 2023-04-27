@@ -29,5 +29,13 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject); // destroy the bullet
         }
+
+        if (other.gameObject.CompareTag("DeadBox"))
+        {
+            
+            Destroy(other.gameObject);
+        }
+
+
     }
 }

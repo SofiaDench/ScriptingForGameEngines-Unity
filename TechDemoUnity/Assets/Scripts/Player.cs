@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
 
     public float health;
     public HealthBar healthBar;
-    public ScorePoints scorePoints;
+
+
 
     private void Awake()
     {
