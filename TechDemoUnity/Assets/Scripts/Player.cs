@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
         {
             // Apply upward force for jump
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            Debug.Log("is jumping");
         }
     }
 

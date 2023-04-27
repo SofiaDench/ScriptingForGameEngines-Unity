@@ -196,7 +196,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3657020482606149026}
   - component: {fileID: 3840129838421944628}
-  - component: {fileID: 3840129838421944629}
   - component: {fileID: 3840129838421944630}
   m_Layer: 6
   m_Name: Skull
@@ -238,20 +237,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &3840129838421944629
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4146557880581060376}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5275773004055656219, guid: c46c107d51c0169478f885ed72e8bd0f, type: 3}
 --- !u!114 &3840129838421944630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,15 +249,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ca63b440ab09042ac9541f11390805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  camera: {fileID: 0}
+  moveSpeed: 0
+  jumpForce: 0
   playerObject: {fileID: 3657020482606149026}
   bulletSpawnPoint: {fileID: 4146557880581060376}
   bullet: {fileID: 919132149155446097, guid: 2f0bcbc99d6580844954a4cd9423ca5c, type: 3}
-  waitTime: 0
-  points: 5
-  maxHealth: 100
   health: 0
+  healthBar: {fileID: 0}
 --- !u!1 &4818644051007280936
 GameObject:
   m_ObjectHideFlags: 0
