@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class FollowPlayer : MonoBehaviour
 {
     //Variables
     public Transform player;

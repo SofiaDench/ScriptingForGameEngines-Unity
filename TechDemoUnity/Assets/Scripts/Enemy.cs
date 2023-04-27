@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public float patrolTime;
     public float enemyDamage;
 
+    public ScorePoints scorePoints;
+
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -107,6 +109,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        scorePoints.SetPoints(10);
         Destroy(gameObject); // destroy the enemy object
     }
 

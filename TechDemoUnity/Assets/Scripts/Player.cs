@@ -25,11 +25,13 @@ public class Player : MonoBehaviour
     private Transform bulletSpawned;
 
     public float health;
-
+    public HealthBar healthBar;
+    public ScorePoints scorePoints;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        healthBar.SetMaxHealth((int)health);
     }
 
 
@@ -89,7 +91,13 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+
+        
         health -= damage; // reduce health by damage
+
+        healthBar.SetHealth((int)health);
+
+
         if (health <= 0)
         {
             Die(); // if health is <= 0, call the Die method
