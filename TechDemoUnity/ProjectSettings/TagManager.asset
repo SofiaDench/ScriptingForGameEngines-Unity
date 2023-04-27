@@ -8,6 +8,7 @@ TagManager:
   - Sandwich
   - Enemy
   - Environment
+  - Coin
   layers:
   - Default
   - TransparentFX

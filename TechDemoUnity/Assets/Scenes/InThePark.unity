@@ -597,6 +597,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &683146494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a4965a91227785e46a92084a64e7d4b6, type: 3}
+  m_PrefabInstance: {fileID: 1615686034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &683146495
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683146494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!43 &687345324
 Mesh:
   m_ObjectHideFlags: 0
@@ -1164,7 +1183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e3124a1f7a7e16a4d868bca05bbde3de, type: 2}
+  - {fileID: 2100000, guid: 3f55358f49c7f3d44bab407aa14cddbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1497,7 +1516,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh40742
+  m_Name: pb_Mesh23830
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2034,6 +2053,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: a4965a91227785e46a92084a64e7d4b6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 73dabda4cbee10946b4e4a481cc215a2, type: 2}
     - target: {fileID: 919132149155446097, guid: a4965a91227785e46a92084a64e7d4b6, type: 3}
       propertyPath: m_Name
       value: Coin
@@ -2553,6 +2576,7 @@ GameObject:
   - component: {fileID: 919132148925330168}
   - component: {fileID: 919132148925330167}
   - component: {fileID: 578269561}
+  - component: {fileID: 919132148925330169}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2589,6 +2613,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 1
+--- !u!114 &919132148925330169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148925330166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf0fd3235846b34491c01daaaa800ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: 0
 --- !u!4 &953354985467182457
 Transform:
   m_ObjectHideFlags: 0
