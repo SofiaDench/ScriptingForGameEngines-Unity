@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
     //enemy starting patrol points within a collider box
     public Vector3 RandomPointInArea(Bounds bounds)
     {
-        return new Vector3(Random.Range(bounds.min.x, bounds.max.x), 1.0f, Random.Range(bounds.min.z, bounds.max.z));
+        return new Vector3(Random.Range(bounds.min.x, bounds.max.x), Random.Range(bounds.min.y, bounds.max.y), Random.Range(bounds.min.z, bounds.max.z));
     }
 
 
@@ -91,10 +91,12 @@ public class Enemy : MonoBehaviour
     {
         Bounds bounds = patrolArea.GetComponent<Collider>().bounds;
         Vector3 randomPoint;
-        do
-        {
-            randomPoint = RandomPointInArea(bounds);
-        } while (!bounds.Contains(randomPoint)); // Keep generating new points until a point within the bounds is found
+        //do
+        //{
+        randomPoint = RandomPointInArea(bounds);
+        //} 
+
+        //while (!bounds.Contains(randomPoint)); // Keep generating new points until a point within the bounds is found
         patrolDirection = (randomPoint - transform.position).normalized;
         patrolTimer = patrolTime;
     }
