@@ -108,6 +108,7 @@ public class Player : MonoBehaviour
 
     void Die()
     {
+        GameManager.Instance.PlayerDied();
         Destroy(gameObject); // destroy the enemy object
     }
 
