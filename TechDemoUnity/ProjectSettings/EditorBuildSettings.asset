@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ByTheTowers.unity
     guid: ca635d387a4a5d041a75252eae5c9d4d
+  - enabled: 1
+    path: Assets/Scenes/EndOfGame.unity
+    guid: c27f3a5f3bbdfab45ae306e8e79cb293
   m_configObjects: {}

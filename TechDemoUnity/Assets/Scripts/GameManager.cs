@@ -43,9 +43,9 @@ public class GameManager : MonoBehaviour
             if(enemyCount == 0)
                 SceneManager.LoadScene("ByTheTowers");
 
-     //   if (currentScene.name == "ByTheTowers")
-     //       if (enemyCount == 0)
-     //           SceneManager.LoadScene("InsertNameOfSceneHereAndYouWillGoThereOK?");
+       if (currentScene.name == "ByTheTowers")
+           if (enemyCount == 0)
+               SceneManager.LoadScene("EndOfGame");
 
 
     }
