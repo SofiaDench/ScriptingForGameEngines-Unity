@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
         if (currentScene.name == "InThePark")
             if(enemyCount == 0)
-                SceneManager.LoadScene("Level 2");
+                SceneManager.LoadScene("ByTheTowers");
 
         if (currentScene.name == "Level 2")
             if (enemyCount == 0)
