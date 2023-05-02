@@ -43,9 +43,9 @@ public class GameManager : MonoBehaviour
             if(enemyCount == 0)
                 SceneManager.LoadScene("ByTheTowers");
 
-        if (currentScene.name == "Level 2")
-            if (enemyCount == 0)
-                SceneManager.LoadScene("InsertNameOfSceneHereAndYouWillGoThereOK?");
+     //   if (currentScene.name == "ByTheTowers")
+     //       if (enemyCount == 0)
+     //           SceneManager.LoadScene("InsertNameOfSceneHereAndYouWillGoThereOK?");
 
 
     }
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         {
             UpdateEnemyCount();
         }
-        else if (currentScene.name == "Level 2")
+        else if (currentScene.name == "ByTheTowers")
         {
             UpdateEnemyCount();
         }
@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
             enemies.Add(item);
 
         enemyCount = enemies.Count;
+        ScoreController.Instance.UpdateScore(playerScore);
     }
 
     public void EnemyKilled()
